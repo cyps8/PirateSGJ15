@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://0r74s4kbxgc7"]
+
+[ext_resource type="Script" path="res://Scripts/Game/Level.gd" id="1_wu0ku"]
+
+[node name="Level" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_wu0ku")
+
+[node name="Cam" type="Camera2D" parent="."]

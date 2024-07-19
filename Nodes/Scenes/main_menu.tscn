@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://bthu6nfrgnimv"]
+
+[ext_resource type="Script" path="res://Scripts/Menus/MainMenu.gd" id="1_bk7pn"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_bk7pn")
+
+[node name="c" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="c"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 197.0
+offset_right = 524.0
+offset_bottom = 313.0
+text = "START"
+
+[node name="Options" type="Button" parent="c"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 332.0
+offset_right = 568.0
+offset_bottom = 448.0
+text = "OPTIONS"
+
+[node name="Exit" type="Button" parent="c"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 476.0
+offset_right = 616.0
+offset_bottom = 592.0
+text = "EXIT"
+
+[connection signal="pressed" from="c/Start" to="." method="StartPressed"]
+[connection signal="pressed" from="c/Options" to="." method="OptionsPressed"]
+[connection signal="pressed" from="c/Exit" to="." method="QuitPressed"]

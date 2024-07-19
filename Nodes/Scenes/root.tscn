@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://c733mvsv68g6"]
+
+[ext_resource type="Script" path="res://Scripts/Other/root.gd" id="1_7awkt"]
+[ext_resource type="Script" path="res://Scripts/Menus/Options.gd" id="2_kr552"]
+[ext_resource type="PackedScene" uid="uid://f7ve827mk08f" path="res://Nodes/Scenes/game.tscn" id="2_vlh3e"]
+[ext_resource type="PackedScene" uid="uid://bthu6nfrgnimv" path="res://Nodes/Scenes/main_menu.tscn" id="3_fdv1n"]
+
+[node name="Root" type="Node"]
+process_mode = 3
+script = ExtResource("1_7awkt")
+gameScene = ExtResource("2_vlh3e")
+menuScene = ExtResource("3_fdv1n")
+
+[node name="Options" type="CanvasLayer" parent="."]
+layer = 75
+script = ExtResource("2_kr552")
+
+[node name="c" type="Control" parent="Options"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Options/c"]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 63.0
+offset_right = 839.0
+offset_bottom = 562.0
+
+[node name="Return" type="Button" parent="Options/c/Panel"]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 328.0
+offset_right = 422.0
+offset_bottom = 437.0
+text = "RETURN
+"
+
+[node name="LoadingScreen" type="CanvasLayer" parent="."]
+layer = 100
+visible = false
+
+[node name="c" type="Control" parent="LoadingScreen"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="LoadingScreen/c"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Options/c/Panel/Return" to="Options" method="ReturnPressed"]

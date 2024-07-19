@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://f7ve827mk08f"]
+
+[ext_resource type="PackedScene" uid="uid://0r74s4kbxgc7" path="res://Nodes/Scenes/level.tscn" id="1_mdts0"]
+[ext_resource type="Script" path="res://Scripts/Game/GameManager.gd" id="1_we75i"]
+[ext_resource type="Script" path="res://Scripts/Menus/Pause.gd" id="3_e722x"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_we75i")
+
+[node name="Level" parent="." instance=ExtResource("1_mdts0")]
+
+[node name="Pause" type="CanvasLayer" parent="."]
+layer = 50
+script = ExtResource("3_e722x")
+
+[node name="c" type="Control" parent="Pause"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Pause/c"]
+layout_mode = 0
+offset_left = 379.0
+offset_top = 96.0
+offset_right = 756.0
+offset_bottom = 554.0
+
+[node name="Resume" type="Button" parent="Pause/c/Panel"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 31.0
+offset_right = 284.0
+offset_bottom = 121.0
+text = "RESUME"
+
+[node name="Options" type="Button" parent="Pause/c/Panel"]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 170.0
+offset_right = 285.0
+offset_bottom = 260.0
+text = "OPTIONS"
+
+[node name="MainMenu" type="Button" parent="Pause/c/Panel"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 306.0
+offset_right = 281.0
+offset_bottom = 396.0
+text = "MAIN MENU"
+
+[connection signal="pressed" from="Pause/c/Panel/Resume" to="Pause" method="ResumePressed"]
+[connection signal="pressed" from="Pause/c/Panel/Options" to="Pause" method="OptionsPressed"]
+[connection signal="pressed" from="Pause/c/Panel/MainMenu" to="Pause" method="MainMenuPressed"]
